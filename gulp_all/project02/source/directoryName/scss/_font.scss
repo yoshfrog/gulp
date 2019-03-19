@@ -1,0 +1,145 @@
+@charset "UTF-8";
+//  font
+
+// -apple-system, BlinkMacSystemFont,  Mac 欧文はSan Francisco (Macシステムフォント OS X 10.11以降)
+// "Helvetica Neue",                   Mac 欧文 (OS X 10.10以前)
+// "Hiragino Kaku Gothic ProN",        Mac ヒラギノ
+// YuGothic,                           Mac 遊ゴシック
+// Yu Gothic,                          Windows 遊ゴシック (IE非対応)
+// Meiryo,                             Windows メイリオ
+// sans-serif
+
+
+//デバイスフォントベース（Mac ヒラギノ     Win メイリオ）
+$font_base: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+
+//遊ゴシック（mac 遊ゴシック ヒラギノ     Win メイリオ）
+$font_yugo: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+
+//遊ゴシック（mac win 遊ゴシック (IEは非対応））  font-weight:500 をデフォルトにする win向けの遊ゴシックはサポート不十分なため、使用には注意
+$font_yugo_mw: -apple-system, BlinkMacSystemFont, "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
+
+//明朝
+$font_mincho: "游明朝", "Yu Mincho", "游明朝体", "YuMincho", 	"ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HiraMinProN-W3", "HGS明朝E" ,"ＭＳ Ｐ明朝" ,"MS PMincho", serif;
+
+
+//Noto Sans JP（Web font @font-faceも併用 ）
+$font_notosansjp: "Noto Sans JP", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+
+@mixin notosans_jp {
+	//日本語 Noto Sans JP
+	@font-face {
+	  font-family: 'Noto Sans JP';
+	  font-style: normal;
+	  font-weight: 100;
+	  src: local("Noto Sans CJK JP Thin"),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.woff2) format('woff2'),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.woff) format('woff'),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.otf) format('opentype');
+	}
+	@font-face {
+	  font-family: 'Noto Sans JP';
+	  font-style: normal;
+	  font-weight: 300;
+	  src: local("Noto Sans CJK JP Light"),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Light.woff2) format('woff2'),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Light.woff) format('woff'),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Light.otf) format('opentype');
+	}
+	@font-face {
+	  font-family: 'Noto Sans JP';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: local("Noto Sans CJK JP Regular"),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Regular.woff2) format('woff2'),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Regular.woff) format('woff'),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Regular.otf) format('opentype');
+	}
+	@font-face {
+	  font-family: 'Noto Sans JP';
+	  font-style: normal;
+	  font-weight: 500;
+	  src: local("Noto Sans CJK JP Medium"),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Medium.woff2) format('woff2'),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Medium.woff) format('woff'),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Medium.otf) format('opentype');
+	}
+	@font-face {
+	  font-family: 'Noto Sans JP';
+	  font-style: normal;
+	  font-weight: 700;
+	  src: local("Noto Sans CJK JP Bold"),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Bold.woff2) format('woff2'),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Bold.woff) format('woff'),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Bold.otf) format('opentype');
+	}
+	@font-face {
+	  font-family: 'Noto Sans JP';
+	  font-style: normal;
+	  font-weight: 900;
+	  src: local("Noto Sans CJK JP Black"),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Black.woff2) format('woff2'),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Black.woff) format('woff'),
+	       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Black.otf) format('opentype');
+	}
+}
+
+
+@mixin notosans_sc {
+	//中国語（簡体字）
+	html[lang="zh-cn"] body {
+		font-family: 'Noto Sans SC', sans-serif;
+	}
+
+	//中国語 Noto Sans SC
+	@font-face {
+	  font-family: 'Noto Sans SC';
+	  font-style: normal;
+	  font-weight: 100;
+	  src: url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Thin.woff2) format('woff2'),
+	       url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Thin.woff) format('woff'),
+	       url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Thin.otf) format('opentype');
+	}
+	@font-face {
+	  font-family: 'Noto Sans SC';
+	  font-style: normal;
+	  font-weight: 300;
+	  src: url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Light.woff2) format('woff2'),
+	       url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Light.woff) format('woff'),
+	       url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Light.otf) format('opentype');
+	}
+	@font-face {
+	   font-family: 'Noto Sans SC';
+	   font-style: normal;
+	   font-weight: 400;
+	   src: url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff2) format('woff2'),
+	        url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff) format('woff'),
+	        url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.otf) format('opentype');
+	 }
+	@font-face {
+	   font-family: 'Noto Sans SC';
+	   font-style: normal;
+	   font-weight: 500;
+	   src: url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Medium.woff2) format('woff2'),
+	        url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Medium.woff) format('woff'),
+	        url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Medium.otf) format('opentype');
+	 }
+	@font-face {
+	   font-family: 'Noto Sans SC';
+	   font-style: normal;
+	   font-weight: 700;
+	   src: url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff2) format('woff2'),
+	        url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff) format('woff'),
+	        url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.otf) format('opentype');
+	 }
+	@font-face {
+	   font-family: 'Noto Sans SC';
+	   font-style: normal;
+	   font-weight: 900;
+	   src: url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Black.woff2) format('woff2'),
+	        url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Black.woff) format('woff'),
+	        url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Black.otf) format('opentype');
+	 }
+}
+
+

@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/* ------------------------------------------------
+  sitebase
+------------------------------------------------ */
+//制作するサイトのベースとなるスタイルを記載
+
+body {
+  min-width: calc(#{$width_outer} + #{$browse_gutter});
+  color: $font_color_base;     //variable.scss
+  @include fz625; // 16px x 0.625 = 10px(=1rem) //responsive.scss
+  font-size:$font_size_base;     //variable.scss 任意にremサイズ決める時
+  // font-family:$font_notosansjp;     //font.scss
+  line-height: $line-height_base;     //variable.scss
+  background: $backgroaund_color_base;     //variable.scss
+}
+
+//@include notosans_jp;     //Webfont 日本語 body{font-family:$font_notosansjp;} と併用する @font-face Noto Sans JP   font.scss
+//@include notosans_sc;     //Webfont 中国語（簡体字） @font-face Noto Sans SC   font.scss
+
+
+
+/* ------------------------------------------------
+  共通レイアウト
+------------------------------------------------ */
+
+a {
+  display: block;
+  color: $anchor_color_base;     //variable.scss
+  outline: none;
+  text-decoration:none;
+  vertical-align:baseline;
+  transition: color 0.3s;
+
+  &:visited {
+    color: darken($anchor_color_base, 20%);     //variable.scss
+  }
+  &:hover,
+  &:visited:hover {
+    color: $anchor_color_accent;     //variable.scss
+    text-decoration: none;
+    opacity: .8;
+  }
+}//a
+
+//pタグ内のリンクはinline
+p a {
+    display: inline;
+    color: $font_color_base;     //variable.scss
+    text-decoration: underline;
+}
+p a:hover {
+    text-decoration: none;
+    opacity: 1;
+}
+
+
+@mixin btn-default {
+  color: #fff;
+  border-color: $color_base;
+  background-color: lighten($color_accent, 20%);
+  vertical-align: middle;
+  transition: all 0.3s;
+  &:after {
+    content: ">";
+    display: inline-block;
+    font-size: 120%;
+    margin-left: .5em;
+    transform: translateY(-10%);
+  }
+  &:hover {
+    background-color: lighten($color_base, 20%);
+  }
+}

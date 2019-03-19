@@ -1,0 +1,136 @@
+@charset "utf-8";
+//  Mixin
+
+//-------------------フォント／テキスト系-------------------
+@mixin fz625 { font-size:62.5%; }  //body { @include fz625; }
+
+//10が基準 body {font-size:62.5%;}指定してる時に使用
+@mixin fz10($size) {
+	font-size: $size + px;
+	font-size: ($size / 10)  + rem;
+}
+// .hoge { @include fz10(16); }  ->  font-size: 16px; font-size: 1.6rem;
+
+//基準値を指定できる body {font-size:62.5%;}指定していない場合に使用
+@mixin fz($size, $base: 16) {
+	font-size: $size + px;
+	font-size: ($size / $base) + rem;
+}
+// .hoge { @include fz(16); }  ->  font-size: 16px; font-size: 1rem;
+
+//text両端揃え
+@mixin justify {
+	text-align: justify; // 両端揃え
+	text-justify: inter-ideograph; // 両端揃えの種類(IE用)
+}
+
+//-------------------Flexbox-------------------
+@mixin flex { display: flex; }
+
+@mixin flexwrap { flex-wrap: wrap; }
+@mixin flexnowrap { flex-wrap: nowrap; }
+
+@mixin flexstretch { align-items: stretch; }
+@mixin flexmiddle { align-items: center; }
+
+
+@mixin flexcenter {  justify-content: center; }
+@mixin flexbetween { justify-content:space-between; }
+@mixin flexaround { justify-content: space-around; }
+@mixin flexstart { justify-content: flex-start; }
+@mixin flexend { justify-content: flex-end; }
+
+
+@mixin flexorder($order) { order:$order; }  // .hoge { @include flexorder(1); }
+
+
+
+//-------------------天地中央-------------------
+@mixin centerXY {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+
+//-------------------縦中央-------------------
+@mixin centerY ($toward, $locate) {
+	position: absolute;
+	#{$toward}: $locate;
+	top: 50%;
+	transform: translateY(-50%);
+}
+// .hoge { @include centerY(right, 20%); }
+// .hoge { @include centerY(left, 80%); }
+
+//-------------------横中央-------------------
+@mixin centerX ($toward, $locate) {
+	position: absolute;
+	#{$toward}: $locate;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+// .hoge { @include centerX(top, 20%); }
+// .hoge { @include centerX(bottom, 80%); }
+
+
+
+//-------------------三角-------------------
+@mixin triangle ($direction, $wide, $peak, $solid, $hue) {
+	@if $direction == top {
+		border:$wide $solid transparent;
+		border-bottom:$peak $solid $hue;
+	} @else if $direction == left {
+		border:$wide $solid transparent;
+		border-right:$peak $solid $hue;
+	} @else if $direction == right {
+		border:$wide $solid transparent;
+		border-left:$peak $solid $hue;
+	} @else if $direction == bottom {
+		border:$wide $solid transparent;
+		border-top:$peak $solid $hue;
+	}
+}
+
+// .hoge {
+//   @include triangle(top, 50px, 100px, solid, #333);
+//   @include triangle(bottom, 50px, 100px, solid, #333);
+//   @include triangle(right, 50px, 100px, solid, #333);
+//   @include triangle(left, 50px, 100px, solid, #333);
+// }
+
+
+//-------------------グラデーション グラベンダープレフィックス-------------------
+//可長変引数として定義するには、引数「$color」の後ろにカンマ3つ（...）を記述「color...」します。
+
+@mixin gradation($startPosition, $endPosition, $graColors...) {
+  background-image:linear-gradient(to #{$endPosition}, $graColors);
+}
+//.hoge { @include gradation(top, bottom, #000 0%, #333 49%, #999 50%, #eee 100%); }
+
+
+
+//-------------------角度付きグラデーション グラベンダープレフィックス-------------------
+@mixin gradationdeg($angle, $graColors... ) {
+	@if $angle < 0 {
+		background-image:linear-gradient($angle + 180 , $graColors);
+	} @else {
+		background-image:linear-gradient($angle, $graColors);
+	}
+}
+//.hoge { @include gradationdeg(-45deg, #999 0%, #888 50%, #777 51%, #666 100%); }
+
+
+
+
+//-------------------円型グラデーション グラベンダープレフィックス-------------------
+@mixin gradationcir($graColors... ) {
+	background-image:radial-gradient(ellipse at center, $graColors);
+}
+// .hoge { @include gradationcir( #999 0%,  #666 100%); }
+
+
+
+
