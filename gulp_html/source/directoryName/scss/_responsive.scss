@@ -1,0 +1,88 @@
+@charset "UTF-8";
+/* ------------------------------------------------
+  responsive
+------------------------------------------------ */
+//PCのみ  (使用頻度あまりないかも)
+@mixin desktop-over {
+  @media screen and (min-width: $desktop ) {
+    @content;
+  }
+}
+
+//tablet分岐
+//breakpointがタブレット幅のとき   tablet以上サイズ用（PC含む）
+@mixin tablet-over {
+  @media screen and (min-width: $tablet + 1 ) {
+    @content;
+  }
+}
+//tablet以下 (mobile含む)  breakpoint タブレット幅のとき
+@mixin tablet {
+  @media screen and (max-width: $tablet ) {
+    @content;
+  }
+}
+
+
+//tabletのみ （mobile以上 PC以下）  breakpointがタブレット幅とモバイル幅のとき
+@mixin tablet-only {
+  @media screen and (min-width: $mobile + 1 ) and (max-width: $tablet ) {
+    @content;
+  }
+}
+
+//mobile以下  breakpoint タブレット幅とモバイル幅のとき
+@mixin mobile {
+  @media screen and (max-width: $mobile ) {
+    @content;
+  }
+}
+
+
+
+
+/*display_switch*/
+@mixin display_switch {
+  //breakpoint タブレット幅のみのとき
+  @if $break_tablet == yes {
+    .sp { display: none !important; }
+    //タブレット幅以下のとき
+    @include tablet {
+  /* ------------------------------------------------
+    responsive
+  ------------------------------------------------ */
+      /*display_switch*/
+      .pc { display: none !important; }
+      .sp { display: block !important; }
+    }//tablet
+  }//if
+
+  //breakpoint タブレット幅 および モバイル幅のとき
+  @if $break_tablet_mobile == yes {
+    .tablet, .sp { display: none !important; }
+    //タブレット幅のみのとき
+    @include tablet-only {
+  /* ------------------------------------------------
+    responsive
+  ------------------------------------------------ */
+      /*display_switch*/
+      .pc, .sp { display: none !important; }
+      .tablet { display: block !important; }
+    }//tablet-only
+    //モバイル幅のみのとき
+    @include mobile {
+  /* ------------------------------------------------
+    responsive
+  ------------------------------------------------ */
+      /*display_switch*/
+      .pc, .tablet { display: none !important; }
+      .sp { display: block !important; }
+
+    }//mobile
+  }//if
+
+}//display_switch
+
+
+@include display_switch;
+
