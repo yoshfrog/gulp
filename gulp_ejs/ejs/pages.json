@@ -1,0 +1,18 @@
+{
+  "pages": [
+    {
+      "id": "01",
+      "pagetitle": "ページタイトル",
+      "description": "デスクリプション",
+      "keywords": "キーワード",
+
+      "sectitle": "セクションタイトル",
+      "lead": "リード",
+      "text": "テキスト",
+      "caption": "キャプション"
+
+
+
+    }
+  ]
+}

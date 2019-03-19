@@ -1,0 +1,38 @@
+<% var data = jsonData; %><!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width">
+<meta name="keywords" content="<%= data.keywords %>" />
+<meta name="description" content="<%= data.description %>" />
+<meta name="google-site-verification" content="" />
+<meta property="og:title" content="<%= data.pagetitle %>">
+<meta property="og:type" content="website">
+<meta property="og:url" content="<%= data.id %>.html">
+<meta property="og:site_name" content="<%= data.pagetitle %>">
+<meta property="og:image" content="/images/ogp.jpg">
+<meta property="og:description" content="<%= data.description %>">
+<meta property="og:locale" content="ja_JP">
+<meta property="fb:app_id" content="">
+<title><%= data.pagetitle %></title>
+
+<link href="/css/style.css" rel="stylesheet" media="all">
+
+</head>
+
+<body>
+
+	<section>
+		<h1><%= data.sectitle %></h1>
+		<p><%= data.lead %></p>
+		<p><%= data.text %></p>
+		<figure>
+			<img src="/images/<%= data.id %>/img_01.jpg" alt="<%= data.caption %>">
+			<figcaption><%= data.caption %></figcaption>
+		</figure>
+	</section>
+
+
+</body>
+</html>
