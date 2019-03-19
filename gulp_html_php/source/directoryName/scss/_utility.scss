@@ -1,0 +1,189 @@
+@charset "utf-8";
+/* ------------------------------------------
+ Utility
+------------------------------------------ */
+.dn { display: none !important; }
+.db { display: block !important; }
+.di { display: inline !important; }
+.dib { display: inline-block !important; }
+
+.ovh { overflow: hidden !important; }
+.por { position: relative; }
+.poa { position: absolute; }
+
+.tal { text-align: left !important; }
+.tar { text-align: right !important; }
+.tac { text-align: center !important; }
+
+.font_normal { font-weight: normal; }
+.font_bold { font-weight: bold; }
+
+.font_small  { font-size: 80% !important; }
+.font_medium { font-size: 90% !important; }
+.font_large  { font-size: 120% !important; }
+.font_xlarge { font-size: 150% !important; }
+
+
+// @include tablet {
+// 	/* ------------------------------------------
+// 	  Utility
+// 	------------------------------------------ */
+// }//tablet
+
+
+
+
+/* ------------------------------------------
+  Width 10-100%
+------------------------------------------ */
+// Width 10-100%
+@for $i from 1 to 11 {
+  .width#{$i * 10} {
+    width: 10% * $i !important;
+  }
+}
+
+//レスポンシブはPCの80%幅
+@include tablet {
+	/* ------------------------------------------
+	  Width 10-100%
+	------------------------------------------ */
+	@for $i from 1 to 11 {
+	  .width#{$i * 10} {
+	    width: 10% * $i/1.325 !important;
+	  }
+	}
+}//mediaquery
+
+
+/* ------------------------------------------
+  Margin 0-60/Padding 0-60
+------------------------------------------ */
+// margin 0-60
+@for $i from 0 to 13 {
+  .m#{$i * 5} {
+    margin: 5px * $i !important;
+  }
+}
+// margin-top 0-60
+@for $i from 0 to 13 {
+  .mt#{$i * 5} {
+    margin-top: 5px * $i !important;
+  }
+}
+// margin-bottom 0-60
+@for $i from 0 to 13 {
+  .mb#{$i * 5} {
+    margin-bottom: 5px * $i !important;
+  }
+}
+// margin-left 0-60
+@for $i from 0 to 13 {
+  .ml#{$i * 5} {
+    margin-left: 5px * $i !important;
+  }
+}
+// margin-right 0-60
+@for $i from 0 to 13 {
+  .mr#{$i * 5} {
+    margin-right: 5px * $i !important;
+  }
+}
+
+// padding 0-60
+@for $i from 0 to 13 {
+  .p#{$i * 5} {
+    padding: 5px * $i !important;
+  }
+}
+// padding-top 0-60
+@for $i from 0 to 13 {
+  .pt#{$i * 5} {
+    padding-top: 5px * $i !important;
+  }
+}
+// padding-bottom 0-60
+@for $i from 0 to 13 {
+  .pb#{$i * 5} {
+    padding-bottom: 5px * $i !important;
+  }
+}
+// padding-left 0-60
+@for $i from 0 to 13 {
+  .pl#{$i * 5} {
+    padding-left: 5px * $i !important;
+  }
+}
+// padding-right 0-60
+@for $i from 0 to 13 {
+  .pr#{$i * 5} {
+    padding-right: 5px * $i !important;
+  }
+}
+
+@include tablet {
+	/* ------------------------------------------
+	  Margin 0-60/Padding 0-60
+	------------------------------------------ */
+	// margin 0-60
+	@for $i from 0 to 13 {
+	  .m#{$i * 5} {
+	    margin: 5px * $i/2 !important;
+	  }
+	}
+	// margin-top 0-60
+	@for $i from 0 to 13 {
+	  .mt#{$i * 5} {
+		margin-top: 5px * $i/2 !important;
+	  }
+	}
+	// margin-bottom 0-60
+	@for $i from 0 to 13 {
+	  .mb#{$i * 5} {
+		margin-bottom: 5px * $i/2 !important;
+	  }
+	}
+	// margin-left 0-60
+	@for $i from 0 to 13 {
+	  .ml#{$i * 5} {
+		margin-left: 5px * $i/2 !important;
+	  }
+	}
+	// margin-right 0-60
+	@for $i from 0 to 13 {
+	  .mr#{$i * 5} {
+		margin-right: 5px * $i/2 !important;
+	  }
+	}
+
+	// padding 0-60
+	@for $i from 0 to 13 {
+	  .p#{$i * 5} {
+	    padding: 5px * $i !important;
+	  }
+	}
+	// padding-top 0-60
+	@for $i from 0 to 13 {
+	  .pt#{$i * 5} {
+		padding-top: 5px * $i/2 !important;
+	  }
+	}
+	// padding-bottom 0-60
+	@for $i from 0 to 13 {
+	  .pb#{$i * 5} {
+		padding-bottom: 5px * $i/2 !important;
+	  }
+	}
+	// padding-left 0-60
+	@for $i from 0 to 13 {
+	  .pl#{$i * 5} {
+		padding-left: 5px * $i/2 !important;
+	  }
+	}
+	// padding-right 0-60
+	@for $i from 0 to 13 {
+	  .pr#{$i * 5} {
+		padding-right: 5px * $i/2 !important;
+	  }
+	}
+}//mediaquery
