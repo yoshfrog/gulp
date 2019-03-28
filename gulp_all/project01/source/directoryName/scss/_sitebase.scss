@@ -3,12 +3,14 @@
   sitebase
 ------------------------------------------------ */
 //制作するサイトのベースとなるスタイルを記載
-
+html {
+  @include fz625; // 16px x 0.625 = 10px(=1rem) //mixin.scss
+}
 body {
   min-width: calc(#{$width_outer} + #{$browse_gutter});
   color: $font_color_base;     //variable.scss
-  @include fz625; // 16px x 0.625 = 10px(=1rem) //responsive.scss
   font-size:$font_size_base;     //variable.scss 任意にremサイズ決める時
+  font-family:$font_yugo;     //font.scss
   // font-family:$font_notosansjp;     //font.scss
   line-height: $line-height_base;     //variable.scss
   background: $backgroaund_color_base;     //variable.scss
@@ -28,7 +30,6 @@ a {
   color: $anchor_color_base;     //variable.scss
   outline: none;
   text-decoration:none;
-  vertical-align:baseline;
   transition: color 0.3s;
 
   &:visited {
@@ -53,21 +54,3 @@ p a:hover {
     opacity: 1;
 }
 
-
-@mixin btn-default {
-  color: #fff;
-  border-color: $color_base;
-  background-color: lighten($color_accent, 20%);
-  vertical-align: middle;
-  transition: all 0.3s;
-  &:after {
-    content: ">";
-    display: inline-block;
-    font-size: 120%;
-    margin-left: .5em;
-    transform: translateY(-10%);
-  }
-  &:hover {
-    background-color: lighten($color_base, 20%);
-  }
-}
