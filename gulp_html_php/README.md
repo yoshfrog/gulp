@@ -40,24 +40,27 @@ gulp_html
 - PHP localserver起動 (**※ウォッチによるブラウザ同期はできない**)
 
 
-### 必要なパッケージ
-- gulp-sass
-- gulp-autoprefixer
-- gulp-plumber
-- gulp-notify
-- gulp-sourcemaps
-- gulp-postcss
-- css-mqpacker
-- gulp-watch
-- gulp-changed
-- del
-- gulp-rename
-- browser-sync
-- gulp-clean-css
-- gulp-imagemin
-- imagemin-pngquant
-- imagemin-mozjpeg
-- gulp-connect-php
+#### 必要なパッケージと作成時のバージョン
+バージョンによっては仕様が変更されgulpfile.jsの更新が必要になる場合あり  
+
+- gulp : 3.9.1
+- gulp-sass : 4.0.1
+- gulp-autoprefixer : 6.0.0
+- gulp-plumber : 1.2.0
+- gulp-notify : 3.2.0
+- gulp-sourcemaps : 2.6.4
+- gulp-postcss : 8.0.0
+- css-mqpacker : 7.0.0
+- gulp-watch : 5.0.1
+- gulp-changed : 3.2.0
+- del : 3.0.0
+- gulp-rename : 1.4.0
+- browser-sync : 2.24.7
+- gulp-clean-css : 3.10.0
+- gulp-imagemin : 4.1.0
+- imagemin-pngquant : 6.0.0
+- imagemin-mozjpeg : 7.0.0
+- gulp-connect-php : 1.0.3
 
 
 ### タスク実行

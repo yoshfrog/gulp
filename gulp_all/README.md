@@ -26,6 +26,14 @@ npm install -D gulp
 -> node_modulesフォルダにデフォルトパッケージが生成される  
 　package-lock.jsonが生成される
 
+#### バージョンを指定してインストールする場合
+「gulp」の後に「@バージョン」としインストール  
+
+```
+npm install -D gulp@x.x.x
+```
+
+
 ### 3. パッケージインストール
 必要なパッケージをインストール  
 複数ある場合は、半角スペースを挟んで続けて記述する
@@ -34,25 +42,35 @@ npm install -D gulp-xxx gulp-xxx
 ```
 -> node_modulesフォルダに各パッケージがインストールされる  
 
+#### バージョンを指定してインストールする場合
+「gulp-パッケージ名」の後に「@バージョン」としインストール  
 
-#### 必要なパッケージ
-- gulp-sass
-- gulp-autoprefixer
-- gulp-plumber
-- gulp-notify
-- gulp-sourcemaps
-- gulp-postcss
-- css-mqpacker
-- gulp-watch
-- gulp-changed
-- del
-- gulp-rename
-- browser-sync
-- gulp-clean-css
-- gulp-imagemin
-- imagemin-pngquant
-- imagemin-mozjpeg
-- gulp-connect-php
+```
+npm install -D gulp-xxx@x.x.x
+```
+
+
+#### 必要なパッケージと作成時のバージョン
+バージョンによっては仕様が変更されgulpfile.jsの更新が必要になる場合あり  
+
+- gulp : 3.9.1
+- gulp-sass : 4.0.1
+- gulp-autoprefixer : 6.0.0
+- gulp-plumber : 1.2.0
+- gulp-notify : 3.2.0
+- gulp-sourcemaps : 2.6.4
+- gulp-postcss : 8.0.0
+- css-mqpacker : 7.0.0
+- gulp-watch : 5.0.1
+- gulp-changed : 3.2.0
+- del : 3.0.0
+- gulp-rename : 1.4.0
+- browser-sync : 2.24.7
+- gulp-clean-css : 3.10.0
+- gulp-imagemin : 4.1.0
+- imagemin-pngquant : 6.0.0
+- imagemin-mozjpeg : 7.0.0
+- gulp-connect-php : 1.0.3
 
 
 

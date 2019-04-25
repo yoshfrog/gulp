@@ -21,10 +21,12 @@ gulp_php
 - Local Server起動  
 **※ウォッチによるブラウザ同期はできない**
 
-### 必要なパッケージ
-- gulp
-- browser-sync
-- gulp-connect-php
+#### 必要なパッケージと作成時のバージョン
+バージョンによっては仕様が変更されgulpfile.jsの更新が必要になる場合あり  
+
+- gulp : 3.9.1
+- browser-sync : 2.24.7
+- gulp-connect-php : 1.0.3
 
 ### タスク実行
 ```

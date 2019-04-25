@@ -18,6 +18,14 @@ npm install -D gulp
 -> node_modulesフォルダがにデフォルトパッケージが生成される  
 　package-lock.jsonが生成される
 
+#### バージョンを指定してインストールする場合
+「gulp」の後に「@バージョン」としインストール  
+
+```
+npm install -D gulp@x.x.x
+```
+
+
 
 ### 3. gulpfile.jsファイル作成
 ローカルの「package.json」のある階層に「gulpfile.js」ファイルを新規作成し、処理を記述する
@@ -29,4 +37,10 @@ npm install -D gulp
 複数ある場合は、半角スペースを挟んで続けて記述する
 ```
 npm install -D gulp-xxx gulp-xxx
+```
+#### バージョンを指定してインストールする場合
+「gulp-パッケージ名」の後に「@バージョン」としインストール  
+
+```
+npm install -D gulp-xxx@x.x.x
 ```
