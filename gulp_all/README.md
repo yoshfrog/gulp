@@ -67,9 +67,9 @@ npm install -D gulp-xxx@x.x.x
 - gulp-rename : 1.4.0
 - browser-sync : 2.24.7
 - gulp-clean-css : 3.10.0
-- gulp-imagemin : 4.1.0
-- imagemin-pngquant : 6.0.0
-- imagemin-mozjpeg : 7.0.0
+- gulp-imagemin : 5.0.3
+- imagemin-pngquant : 7.0.0
+- imagemin-mozjpeg : 8.0.0
 - gulp-connect-php : 1.0.3
 
 

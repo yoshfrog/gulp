@@ -111,7 +111,7 @@ gulp.task('imgmin', function(){
   gulp.src([srcImgDir+'/**/*.+(jpg|jpeg|png|gif|svg)'])
     .pipe(plumber())
     .pipe(imagemin([
-       pngquant({ quality: '70-85', speed: 1, floyd:0 }),  //png圧縮
+       pngquant({ quality: [0.70, 0.85], speed: 1, floyd:0 }),  //png圧縮
        mozjpeg({ quality:75, progressive: true }), //jpg圧縮
        imagemin.svgo(),  //svg圧縮
        imagemin.optipng(),
