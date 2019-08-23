@@ -2,6 +2,7 @@
 const gulp = require('gulp');
 
 const sass = require('gulp-sass');
+const sassGlob = require('gulp-sass-glob'); //パーシャルをまとめ読み込むこめる
 const autoprefixer = require("gulp-autoprefixer"); //オートプレフィックス
 const plumber = require('gulp-plumber'); //エラーによる強制停止を防止
 const notify  = require('gulp-notify'); //エラーを通知
@@ -25,24 +26,24 @@ const mozjpeg  = require('imagemin-mozjpeg'); //jpg圧縮
 
 
 // 作業用ディレクトリ
-var srcDir      = './source';
-var srcPageDir  = srcDir + '/directoryName';
-var srcScssDir  = srcPageDir + '/scss';
-var srcImgDir   = srcPageDir + '/images';
+let srcDir      = './source';
+let srcPageDir  = srcDir + '/directoryName';
+let srcScssDir  = srcPageDir + '/scss';
+let srcImgDir   = srcPageDir + '/images';
 
 // 出力用ディレクトリ
-var destDir     = './public';
-var destPageDir = destDir + '/directoryName';
-var destCssDir  = destPageDir + '/css';
-var destImgDir  = destPageDir + '/images';
+let destDir     = './public';
+let destPageDir = destDir + '/directoryName';
+let destCssDir  = destPageDir + '/css';
+let destImgDir  = destPageDir + '/images';
 
 // 納品用フォルダ
-var compDir     = './complete';
-var compPageDir = compDir + '/directoryName';
-var compCssDir  = compPageDir + '/css';
+let compDir     = './complete';
+let compPageDir = compDir + '/directoryName';
+let compCssDir  = compPageDir + '/css';
 
 // プレフィックス用対象世代
-var generations = ['last 2 versions', 'ie >= 10','iOS >= 8', 'Android >= 4.4']; //'last 2 versions', 'ie >= 10', 'iOS >= 8', 'Android >= 4.1'
+// let generations = ['last 2 versions', 'ie >= 10','iOS >= 8', 'Android >= 4.4']; //'last 2 versions', 'ie >= 10', 'iOS >= 8', 'Android >= 4.1'
 
 
 // ----------------------------------------------------------------------------------------
@@ -53,8 +54,9 @@ gulp.task('sass', function () {
   gulp.src([srcScssDir+'/**/*.scss'])  // scss ファイル全部対象
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")})) //エラーによる強制停止しない 通知表示
     .pipe(sourcemaps.init())
+    .pipe(sassGlob())
     .pipe(sass({outputStyle: 'expanded'}))  // コンパイル スタイル エラーがあっても止めない
-    .pipe(autoprefixer({browsers: generations, cascade: false})) //オートプレフィックス 世代指定
+    // .pipe(autoprefixer({browsers: generations, cascade: false})) //オートプレフィックス 世代指定
     .pipe(postcss([mqpacker()])) //media queryまとめる
     .pipe(sourcemaps.write({includeContent: false})) //ソースマップ
     .pipe(sourcemaps.init({loadMaps: true}))
@@ -69,8 +71,9 @@ gulp.task('sassnomap', function () {
   del([destCssDir]);
   gulp.src([srcScssDir+'/**/*.scss'])  // scss ファイル全部対象
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")})) //エラーによる強制停止しない 通知表示
+    .pipe(sassGlob())
     .pipe(sass({outputStyle: 'expanded'}))  // コンパイル スタイル エラーがあっても止めない
-    .pipe(autoprefixer({browsers: generations, cascade: false})) //オートプレフィックス 世代指定
+    // .pipe(autoprefixer({browsers: generations, cascade: false})) //オートプレフィックス 世代指定
     .pipe(postcss([mqpacker()])) //media queryまとめる
     // .pipe(sourcemaps.write({includeContent: false})) //ソースマップ
     // .pipe(sourcemaps.init({loadMaps: true}))
