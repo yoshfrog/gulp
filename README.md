@@ -31,6 +31,17 @@ npm install -D gulp@x.x.x
 ローカルの「package.json」のある階層に「gulpfile.js」ファイルを新規作成し、処理を記述する
 
 
+gulp-autoprefixerを利用する場合、「gulpfile.js」でなく、「package.json」に下記を追記する
+```
+  "browserslist": [
+    "last 2 versions",
+    "IE 10",
+    "iOS 8.1",
+    "Android 4.0"
+  ]
+```
+
+
 
 ### 4. パッケージインストール
 必要なパッケージをインストールする  
