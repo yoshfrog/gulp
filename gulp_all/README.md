@@ -55,6 +55,7 @@ npm install -D gulp-xxx@x.x.x
 
 - gulp : 3.9.1
 - gulp-sass : 4.0.1
+- gulp-sass-glob@1.1.0
 - gulp-autoprefixer : 6.0.0
 - gulp-plumber : 1.2.0
 - gulp-notify : 3.2.0
