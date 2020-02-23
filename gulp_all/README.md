@@ -61,7 +61,7 @@ npm install -D gulp-xxx@x.x.x
 - gulp-notify : 3.2.0
 - gulp-sourcemaps : 2.6.4
 - gulp-postcss : 8.0.0
-- gulp-stylelint : 13.0.0
+- css-declaration-sorter : 5.1.2
 - css-mqpacker : 7.0.0
 - gulp-watch : 5.0.1
 - gulp-changed : 3.2.0
