@@ -9,6 +9,7 @@ const notify  = require('gulp-notify'); //エラーを通知
 const sourcemaps = require('gulp-sourcemaps'); //ソースマップ
 
 const postcss = require( 'gulp-postcss' ); //mqpicker用
+const cssdeclsort = require('css-declaration-sorter'); //css記載順調整
 const mqpacker = require("css-mqpacker"); //media queryまとめる
 
 const watch = require('gulp-watch');  //監視
@@ -56,6 +57,7 @@ gulp.task('sass', function () {
     .pipe(sassGlob())
     .pipe(sass({outputStyle: 'expanded'}))  // コンパイル スタイル エラーがあっても止めない
     // .pipe(autoprefixer({browsers: generations, cascade: false})) //オートプレフィックス 世代指定
+    .pipe( postcss([ cssdeclsort({ order: 'smacss' }) ]) )  //css記載順  alphabetical, smacss, concentric-css
     .pipe(postcss([mqpacker()])) //media queryまとめる
     .pipe(sourcemaps.write({includeContent: false})) //ソースマップ
     .pipe(sourcemaps.init({loadMaps: true}))
@@ -73,6 +75,7 @@ gulp.task('sassnomap', function () {
     .pipe(sassGlob())
     .pipe(sass({outputStyle: 'expanded'}))  // コンパイル スタイル エラーがあっても止めない
     // .pipe(autoprefixer({browsers: generations, cascade: false})) //オートプレフィックス 世代指定
+    .pipe( postcss([ cssdeclsort({ order: 'smacss' }) ]) )  //css記載順  alphabetical, smacss, concentric-css
     .pipe(postcss([mqpacker()])) //media queryまとめる
     // .pipe(sourcemaps.write({includeContent: false})) //ソースマップ
     // .pipe(sourcemaps.init({loadMaps: true}))
