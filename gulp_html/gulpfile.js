@@ -43,7 +43,7 @@ let compPageDir = compDir + '/directoryName';
 let compCssDir  = compPageDir + '/css';
 
 // プレフィックス用対象世代
-// let generations = ['last 2 versions', 'ie >= 10','iOS >= 8', 'Android >= 4.4']; //'last 2 versions', 'ie >= 10', 'iOS >= 8', 'Android >= 4.1'
+let generations = ['last 2 versions', 'ie >= 10','iOS >= 8', 'Android >= 4.4']; //'last 2 versions', 'ie >= 10', 'iOS >= 8', 'Android >= 4.1'
 
 
 // ----------------------------------------------------------------------------------------
@@ -56,7 +56,7 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
     .pipe(sassGlob())
     .pipe(sass({outputStyle: 'expanded'}))  // コンパイル スタイル エラーがあっても止めない
-    // .pipe(autoprefixer({browsers: generations, cascade: false})) //オートプレフィックス 世代指定
+    .pipe(autoprefixer({browsers: generations, cascade: false})) //オートプレフィックス 世代指定
     .pipe( postcss([ cssdeclsort({ order: 'smacss' }) ]) )  //css記載順  alphabetical, smacss, concentric-css
     .pipe(postcss([mqpacker()])) //media queryまとめる
     .pipe(sourcemaps.write({includeContent: false})) //ソースマップ
@@ -74,7 +74,7 @@ gulp.task('sassnomap', function () {
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")})) //エラーによる強制停止しない 通知表示
     .pipe(sassGlob())
     .pipe(sass({outputStyle: 'expanded'}))  // コンパイル スタイル エラーがあっても止めない
-    // .pipe(autoprefixer({browsers: generations, cascade: false})) //オートプレフィックス 世代指定
+    .pipe(autoprefixer({browsers: generations, cascade: false})) //オートプレフィックス 世代指定
     .pipe( postcss([ cssdeclsort({ order: 'smacss' }) ]) )  //css記載順  alphabetical, smacss, concentric-css
     .pipe(postcss([mqpacker()])) //media queryまとめる
     // .pipe(sourcemaps.write({includeContent: false})) //ソースマップ
